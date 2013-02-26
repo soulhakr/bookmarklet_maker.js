@@ -52,7 +52,7 @@ Objectives
 ----------
 
 The above implementation has some problems which this implementation seeks to correct:
-  - The default behavior in some (most?) browsers for handling the `javascript:` URI schema is to redirect the navigator to a new page displaying the non-`void` return value of any statements in the URI outside of function scope. Bookmarklets should typecast the code in a `void()` or encapsulated in a self-invoking function (i.e. `(function () { var foo…; })();`) to avoid this.
+  - The default behavior in some (most?) browsers for handling the `javascript:` URI schema is to redirect the navigator to a new page displaying the first uncaught return value of any statements in the URI outside of function scope. Bookmarklets should typecast the code in a `void()` or encapsulated in the familiar self-invoking function (i.e. `(function () { var foo, etc… })();`) to avoid this.
   - Without scoping, your bookmarklets may clobber variables in the global namespace
   - I don't know about others, but I generally prefer working the same language if at all practical. If I'm working in JavaScript, I'd rather shift gears to PERL as little as possible
   - As bookmarklets grow in complexity, one should optimally be able to run the code through minification before deployment 
